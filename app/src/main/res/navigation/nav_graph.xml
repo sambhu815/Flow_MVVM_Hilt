@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.swapnil.flow_mvvm_hilt.ui.HomeFragment"
+        android:label="Store"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.swapnil.flow_mvvm_hilt.ui.ProductDetailFragment"
+        android:label="{name}"
+        tools:layout="@layout/product_detail_fragment" >
+        <argument
+            android:name="product"
+            app:argType="com.swapnil.flow_mvvm_hilt.model.ProductsItem" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+</navigation>
