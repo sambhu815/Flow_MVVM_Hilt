@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.swapnil.flow_mvvm_hilt.base.BaseFragment
 import com.swapnil.flow_mvvm_hilt.databinding.HomeFragmentBinding
 import com.swapnil.flow_mvvm_hilt.ui.adapter.StoreAdapter
+import com.swapnil.flow_mvvm_hilt.ui.adapter.StoreDiffUtilsAdapter
 import com.swapnil.flow_mvvm_hilt.utils.NetworkResult
+import com.swapnil.flow_mvvm_hilt.utils.collectLatestLifecycleFlowF
 import com.swapnil.flow_mvvm_hilt.utils.gone
 import com.swapnil.flow_mvvm_hilt.utils.visible
 import com.swapnil.flow_mvvm_hilt.viewmodel.HomeViewModel
@@ -21,6 +23,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>(
     override val viewModel: HomeViewModel by viewModels()
 
     lateinit var storeAdapter: StoreAdapter
+    lateinit var storeDiffUtilsAdapter: StoreDiffUtilsAdapter
 
     override fun setupUI() {
         super.setupUI()
@@ -29,7 +32,11 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>(
     }
 
     private fun setUpRecyclerView() {
-        storeAdapter = StoreAdapter {
+        /*storeAdapter = StoreAdapter {
+            viewModel.onProductClick(findNavController(), it, it.name!!)
+        }*/
+
+        storeDiffUtilsAdapter = StoreDiffUtilsAdapter {
             viewModel.onProductClick(findNavController(), it, it.name!!)
         }
 
@@ -37,7 +44,8 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>(
             layoutManager = LinearLayoutManager(requireContext())
             setHasFixedSize(true)
             itemAnimator = null
-            adapter = storeAdapter
+            // adapter = storeAdapter
+            adapter = storeDiffUtilsAdapter
         }
     }
 
@@ -53,7 +61,8 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>(
         viewModel.storeResponse.observe(viewLifecycleOwner) {
             when (it) {
                 is NetworkResult.Success -> {
-                    storeAdapter.setData(it.data?.products!!)
+                    //storeAdapter.setData(it.data?.products!!)
+                    storeDiffUtilsAdapter.submitList(it.data?.products)
                     binding.pdStore.gone()
                 }
                 is NetworkResult.Error -> {
@@ -65,6 +74,22 @@ class HomeFragment : BaseFragment<HomeFragmentBinding, HomeViewModel>(
                     binding.pdStore.visible()
             }
         }
+
+        /*collectLatestLifecycleFlowF(viewModel.storeResponseFlow) {
+            when (it) {
+                is NetworkResult.Success -> {
+                    storeAdapter.setData(it.data?.products!!)
+                    binding.pdStore.gone()
+                }
+                is NetworkResult.Error -> {
+                    binding.pdStore.gone()
+                    Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
+                }
+
+                is NetworkResult.Loading ->
+                    binding.pdStore.visible()
+            }
+        }*/
     }
 
     private fun fetchStore() {

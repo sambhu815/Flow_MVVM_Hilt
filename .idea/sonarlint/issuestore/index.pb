@@ -1,10 +1,6 @@
 
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-X
-(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-@
-local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 l
@@ -13,5 +9,15 @@ u
 Eapp/src/main/java/com/swapnil/flow_mvvm_hilt/utils/SingleLiveEvent.kt,4\e\4e12f808ccd1831dfc08cf46b0dec87cb4b8703c
 s
 Capp/src/main/java/com/swapnil/flow_mvvm_hilt/utils/NetworkResult.kt,8\6\86858bad4dd2fa28214c1feceb938b3cd2239e41
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+s
+Capp/src/main/java/com/swapnil/flow_mvvm_hilt/model/StoreResponse.kt,3\3\33fe361c6f9963d24d43920085dbb8b92f7e62e7
+r
+Bapp/src/main/java/com/swapnil/flow_mvvm_hilt/model/ProductsItem.kt,0\f\0f73a4efb0cbe0d96df2b1161176a5dbd4b5751b
+n
+>app/src/main/java/com/swapnil/flow_mvvm_hilt/utils/Constant.kt,1\9\19ad3b80edef92343c2e256b6f4105afbd8231d1
+l
+<app/src/main/java/com/swapnil/flow_mvvm_hilt/MainActivity.kt,b\1\b1d62947b89b5431b09e4f5cbd172d818cfe8d7c
+x
+Happ/src/main/java/com/swapnil/flow_mvvm_hilt/ui/ProductDetailFragment.kt,8\5\85d1723d7ad7eb96416e1d764743db8e172a0f52
+y
+Iapp/src/main/java/com/swapnil/flow_mvvm_hilt/data/remote/StoreServices.kt,8\e\8e9382af05167bf87d0e37d765ecd3fa99044a6a

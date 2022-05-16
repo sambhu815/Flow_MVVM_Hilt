@@ -12,6 +12,8 @@ import com.swapnil.flow_mvvm_hilt.model.StoreResponse
 import com.swapnil.flow_mvvm_hilt.ui.HomeFragmentDirections
 import com.swapnil.flow_mvvm_hilt.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,9 +33,21 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun onProductClick(findNavController: NavController, productsItem: ProductsItem,name: String) {
-        findNavController.safeNavigation(HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
-            product = productsItem, name = name
-        ))
+    fun onProductClick(findNavController: NavController, productsItem: ProductsItem, name: String) {
+        findNavController.safeNavigation(
+            HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
+                product = productsItem, name = name
+            )
+        )
     }
+
+    private val _storeResponseFlow: MutableSharedFlow<NetworkResult<StoreResponse>> = MutableSharedFlow()
+    val storeResponseFlow = _storeResponseFlow.asSharedFlow()
+
+    fun fetchStoreFlow() = viewModelScope.launch {
+        storeRepository.getStore().collect {
+            _storeResponseFlow.emit(it)
+        }
+    }
+
 }
