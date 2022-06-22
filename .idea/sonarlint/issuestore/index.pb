@@ -15,9 +15,13 @@ r
 Bapp/src/main/java/com/swapnil/flow_mvvm_hilt/model/ProductsItem.kt,0\f\0f73a4efb0cbe0d96df2b1161176a5dbd4b5751b
 n
 >app/src/main/java/com/swapnil/flow_mvvm_hilt/utils/Constant.kt,1\9\19ad3b80edef92343c2e256b6f4105afbd8231d1
-l
-<app/src/main/java/com/swapnil/flow_mvvm_hilt/MainActivity.kt,b\1\b1d62947b89b5431b09e4f5cbd172d818cfe8d7c
-x
-Happ/src/main/java/com/swapnil/flow_mvvm_hilt/ui/ProductDetailFragment.kt,8\5\85d1723d7ad7eb96416e1d764743db8e172a0f52
 y
 Iapp/src/main/java/com/swapnil/flow_mvvm_hilt/data/remote/StoreServices.kt,8\e\8e9382af05167bf87d0e37d765ecd3fa99044a6a
+{
+Kapp/src/main/java/com/swapnil/flow_mvvm_hilt/data/remote/StoreDataSource.kt,f\8\f8490e6ff142c141274919ea34715fd49029c661
+r
+Bapp/src/main/java/com/swapnil/flow_mvvm_hilt/base/BaseViewModel.kt,b\9\b93c5a2d2c0040af00a55e98cb8b70b902a527cd
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
