@@ -4,4 +4,5 @@
   - Flow API
   - Retrofit API Call
   - Navigation Graph
-  - DiffUtil method for Recyclerview 
+  - DiffUtil method for Recyclerview
+  - connection manager for network state management
